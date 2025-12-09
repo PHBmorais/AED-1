@@ -43,12 +43,10 @@ int main() {
             union_set(a, b);
         }
 
-        // Para garantir pais atualizados
         for (int i = 0; i < V; i++) {
             parent[i] = find_set(i);
         }
 
-        // Agrupar vértices por componente
         char comp[MAXV][MAXV + 1];
         int comp_sz[MAXV];
         for (int i = 0; i < V; i++) comp_sz[i] = 0;
@@ -62,7 +60,6 @@ int main() {
         int comps = 0;
         for (int i = 0; i < V; i++) {
             if (comp_sz[i] > 0) {
-                // ordenar as letras da componente
                 qsort(comp[i], comp_sz[i], sizeof(char), cmp_char);
                 for (int j = 0; j < comp_sz[i]; j++) {
                     printf("%c,", comp[i][j]);
@@ -74,4 +71,5 @@ int main() {
         printf("%d connected components\n\n", comps);
     }
     return 0;
+
 }
